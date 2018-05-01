@@ -3,7 +3,7 @@
 
 export GO_SERVER={{ GOCD_SERVER_HOST }}
 export GO_SERVER_PORT={{ GOCD_SERVER_PORT }}
-export JAVA_HOME={{ GOCD_JAVA_HOME }}
+export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
 export AGENT_WORK_DIR=/var/lib/go-agent{{item}}
 DAEMON=Y
 VNC=N
