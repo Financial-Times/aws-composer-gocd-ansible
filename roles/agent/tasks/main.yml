@@ -90,3 +90,10 @@
   notify: restart all agents
   with_sequence: "count={{ GOCD_AGENT_INSTANCES }}"
   when: gocd_tmp_new_agent.changed or gocd_tmp_agentservice.changed or gocd_tmp_agentdefaults.changed or gocd_tmp_agentscript.changed
+
+# Start Docker service
+- name: start service docker, if not started
+  service:
+    name: docker
+    state: started
+    
