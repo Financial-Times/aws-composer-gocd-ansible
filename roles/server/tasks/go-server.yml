@@ -48,13 +48,6 @@
   notify:
     - restart firewalld
 
-- name: enable Go HTTPS traffic through firewalld
-  become: yes
-  firewalld: port=8154/tcp permanent=true state=enabled
-  when: firewalld|success and firewalld_svc.stdout=='running'
-  notify:
-    - restart firewalld
-
 - name: check if UFW is available
   command: which ufw
   ignore_errors: true
@@ -64,11 +57,6 @@
 - name: enable Go HTTP traffic through ufw
   become: yes
   ufw: rule=allow port={{ GOCD_SERVER_PORT }} proto=tcp
-  when: ufw|success
-
-- name: enable Go HTTPS traffic through ufw
-  become: yes
-  ufw: rule=allow port=8154 proto=tcp
   when: ufw|success
 
 - name: create script for automated Go configuration backups to Git

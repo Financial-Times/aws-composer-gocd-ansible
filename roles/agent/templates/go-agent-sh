@@ -55,7 +55,7 @@ function stringToArgsArray() {
 }
 
 function autoDetectGoServerUrl() {
-  echo "https://{{ GOCD_SERVER_HOST }}:8154/go"
+  echo "http://{{ GOCD_SERVER_HOST }}:8153/go"
 }
 
 CWD="$(dirname "$0")"
