@@ -18,7 +18,9 @@
 
 - name: restart go-server
   become: yes
-  service: name=go-server state=restarted
+  service:
+    name: go-server
+    state: restarted
   notify:
      - ensure go-server running
 
