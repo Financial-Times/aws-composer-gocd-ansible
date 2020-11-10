@@ -88,8 +88,13 @@
 
 - name: create var/lib/go-server directory
   become: yes
-  file: path=/var/lib/go-server state=directory owner={{ GOCD_USER }} group={{ GOCD_GROUP }}
-
+  file: 
+    path: /var/lib/go-server/plugins/external
+    state: directory 
+    recurse: yes
+    owner: {{ GOCD_USER }} 
+    group: {{ GOCD_GROUP }}
+  
 - name: create etc/go directory
   become: yes
   file: path=/etc/go state=directory owner={{ GOCD_USER }} group={{ GOCD_GROUP }}
