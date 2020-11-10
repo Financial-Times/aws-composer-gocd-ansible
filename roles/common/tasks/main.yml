@@ -92,8 +92,8 @@
     path: /var/lib/go-server/plugins/external
     state: directory 
     recurse: yes
-    owner: {{ GOCD_USER }} 
-    group: {{ GOCD_GROUP }}
+    owner: "{{ GOCD_USER }}"
+    group: "{{ GOCD_GROUP }}"
   
 - name: create etc/go directory
   become: yes
