@@ -1,20 +1,22 @@
 # All tasks below have an implied WHEN: GOCD_CONFIGURE.
 - name: yum install base packages needed for server config
   become: yes
-  yum: name={{ item }} state=present
-  with_items:
-   - libxml2
-   - httpd-tools
-   - python-httplib2
+  yum:
+    name:
+      - libxml2
+      - httpd-tools
+      - python-httplib2
+    state: present
   when: ansible_pkg_mgr == 'yum'
 
 - name: apt install base packages needed for server config
   become: yes
-  apt: name={{ item }} state=present
-  with_items:
-   - libxml2-utils
-   - apache2-utils
-   - python-httplib2
+  apt:
+    name:
+      - libxml2-utils
+      - apache2-utils
+      - python-httplib2
+    state: present
   when: ansible_pkg_mgr == 'apt'
 
 - name: Validate SMTP from and admin email addresses

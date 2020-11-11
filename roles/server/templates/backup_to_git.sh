@@ -8,8 +8,7 @@ cd "$WORKING_DIR"
 cp /var/go/go_notify.conf go_notify.conf
 
 # Start backup
-curl 'https://{{ GOCD_SERVER_HOST }}:{{ GOCD_SERVER_SSL_PORT }}/go/api/backups' \
-      --insecure \
+curl 'http://{{ GOCD_SERVER_HOST }}:{{ GOCD_SERVER_PORT }}/go/api/backups' \
       -u "$ADMIN_USER:$ADMIN_PASSWORD" \
       -H 'Confirm: true' \
       -H 'Accept: application/vnd.go.cd.v1+json' \
